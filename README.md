@@ -14,7 +14,7 @@
 🚀 **[View Live Dashboard](https://CodesavvySiddharth.github.io/Juspay-Assignment-main/)**
  
 
-![Dashboard Preview](./public/preview.png) <!-- Add a screenshot of your dashboard here -->
+![Dashboard Preview](./public/image.png) <!-- Add a screenshot of your dashboard here -->
 
 ## ✨ Key Features 
 
