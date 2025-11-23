@@ -11,7 +11,7 @@
 
 ## 🌟 Live Demo
 
-🚀 **[View Live Dashboard](https://CodesavvySiddharth.github.io/Juspay-Assignment-main/)**
+🚀 **[View Live Dashboard](https://codesavvysiddharth-juspay-assignment.netlify.app/)**
  
 
 ![Dashboard Preview](./public/image.png) <!-- Add a screenshot of your dashboard here -->
@@ -321,7 +321,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Siddharth**
 - GitHub: [@CodesavvySiddharth](https://github.com/CodesavvySiddharth)
-- Project: Juspay Dashboard Assignment 
+- Project: **[Juspay Dashboard Assignment](https://codesavvysiddharth-juspay-assignment.netlify.app/)**
 
 ## 🙏 Acknowledgments
 
