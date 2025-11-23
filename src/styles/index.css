@@ -1,0 +1,391 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Fast theme transition for root element */
+    transition: color-scheme 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Optimize theme transitions globally */
+  * {
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), 
+                color 150ms cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+}
+
+@layer components {
+  .juspay-dashboard {
+    @apply w-full min-h-screen;
+    padding: clamp(1rem, 2vw, 2rem);
+  }
+
+  /* Responsive container with proper spacing */
+  .dashboard-container {
+    @apply w-full max-w-none mx-auto;
+    padding: clamp(0.75rem, 2vw, 1.5rem);
+  }
+
+  .dashboard-card {
+    @apply rounded-xl shadow-sm;
+    padding: clamp(1rem, 3vw, 1.5rem);
+    /* Reduced transition duration from 200ms to 150ms */
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Responsive grid layouts */
+  .responsive-grid-2 {
+    @apply grid grid-cols-1 gap-4;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-grid-2 {
+      @apply grid-cols-2 gap-6;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .responsive-grid-2 {
+      @apply gap-7;
+    }
+  }
+
+  .responsive-grid-auto {
+    @apply grid grid-cols-1 gap-4;
+  }
+
+  @media (min-width: 1280px) {
+    .responsive-grid-auto {
+      @apply grid-cols-[1fr_auto] gap-7;
+    }
+  }
+
+  .sidebar-mobile {
+    @apply fixed inset-y-0 left-0 z-40 w-64 transform;
+    /* Optimized sidebar transition - reduced from 300ms to 200ms */
+    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sidebar-desktop {
+    @apply relative flex-shrink-0;
+  }
+
+  /* Responsive text utilities */
+  .text-responsive-xs {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+  }
+
+  .text-responsive-sm {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+  }
+
+  .text-responsive-base {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+  }
+
+  .text-responsive-lg {
+    font-size: clamp(1.125rem, 3.5vw, 1.25rem);
+  }
+
+  .text-responsive-xl {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+  }
+
+  /* Responsive spacing utilities */
+  .space-responsive {
+    gap: clamp(1rem, 3vw, 1.75rem);
+  }
+
+  .padding-responsive {
+    padding: clamp(0.75rem, 2vw, 1.5rem);
+  }
+
+  .margin-responsive {
+    margin: clamp(0.5rem, 2vw, 1rem);
+  }
+
+  /* Fast theme transition utility classes */
+  .theme-transition-fast {
+    transition: background-color 100ms cubic-bezier(0.4, 0, 0.2, 1), 
+                color 100ms cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 100ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .theme-transition-instant {
+    transition: background-color 50ms cubic-bezier(0.4, 0, 0.2, 1), 
+                color 50ms cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 50ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+  .text-safe {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  /* Mobile-specific utilities */
+  @media (max-width: 768px) {
+    .mobile-hidden {
+      display: none !important;
+    }
+
+    .mobile-full-width {
+      width: 100% !important;
+    }
+
+    .mobile-text-center {
+      text-align: center !important;
+    }
+
+    .mobile-flex-col {
+      flex-direction: column !important;
+    }
+
+    .mobile-space-y-2 > * + * {
+      margin-top: 0.5rem !important;
+    }
+
+    .mobile-space-y-4 > * + * {
+      margin-top: 1rem !important;
+    }
+  }
+
+  /* Tablet-specific utilities */
+  @media (max-width: 1024px) {
+    .tablet-hidden {
+      display: none !important;
+    }
+
+    .tablet-full-width {
+      width: 100% !important;
+    }
+  }
+
+  /* Desktop-specific utilities */
+  @media (min-width: 1024px) {
+    .desktop-block {
+      display: block !important;
+    }
+
+    .desktop-flex {
+      display: flex !important;
+    }
+  }
+
+  .container-responsive {
+    container-type: inline-size;
+  }
+
+  .will-change-transform {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  /* Optimized GPU acceleration for theme transitions */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: background-color, color, border-color;
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  @media (hover: hover) {
+    .hover-only:hover {
+    }
+  }
+
+  .img-responsive {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .grid-auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
+  }
+
+  .skeleton-text {
+    @apply skeleton h-4 w-full;
+  }
+
+  .skeleton-avatar {
+    @apply skeleton h-10 w-10 rounded-full;
+  }
+
+  @media print {
+    .print-hidden {
+      display: none !important;
+    }
+
+    .print-visible {
+      display: block !important;
+    }
+  }
+}
+
+@supports selector(::-webkit-scrollbar) {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .dashboard-card {
+    border: 2px solid currentColor;
+  }
+
+  button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Optimize reduced motion for theme changes */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    /* Keep theme transitions but make them faster */
+    transition-duration: 50ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .auto-dark {
+    @apply dark:bg-gray-900 dark:text-white;
+  }
+}
+
+.debug-responsive::before {
+  content: 'xs';
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  background: red;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+@media (min-width: 640px) {
+  .debug-responsive::before {
+    content: 'sm';
+    background: orange;
+  }
+}
+
+@media (min-width: 768px) {
+  .debug-responsive::before {
+    content: 'md';
+    background: yellow;
+    color: black;
+  }
+}
+
+@media (min-width: 1024px) {
+  .debug-responsive::before {
+    content: 'lg';
+    background: green;
+  }
+}
+
+@media (min-width: 1280px) {
+  .debug-responsive::before {
+    content: 'xl';
+    background: blue;
+  }
+}
+
+@media (min-width: 1536px) {
+  .debug-responsive::before {
+    content: '2xl';
+    background: purple;
+  }
+}
+
+/* Additional optimization: Theme-specific fast transitions */
+.light-mode-transition {
+  transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out;
+}
+
+.dark-mode-transition {
+  transition: background-color 100ms ease-out, color 100ms ease-out, border-color 100ms ease-out;
+}
